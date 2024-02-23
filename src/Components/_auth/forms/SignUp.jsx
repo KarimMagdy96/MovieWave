@@ -30,6 +30,7 @@ export default function SignUp() {
   function navigateToLogin() {
     navigate("/login");
     SuccessfullyLogin = () => toast("✅ Successfully Registered");
+    SuccessfullyLogin();
   }
   /****************************************/
   //register user
