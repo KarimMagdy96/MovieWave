@@ -1,0 +1,14 @@
+.authMain {
+  height: 100vh;
+  background-image: url("../../assets/img/wallpaper.webp");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Poppins", sans-serif;
+}
+.authMain .signin-form {
+  width: 450px;
+}
+.authMain .loginFormContainer {
+  background-color: rgba(0, 0, 0, 0.75);
+}/*# sourceMappingURL=authLayout.css.map */

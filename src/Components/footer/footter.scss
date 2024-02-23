@@ -1,0 +1,17 @@
+.footer {
+  background-color: rgba(0, 0, 0, 0.947);
+  width: 100%;
+  background-image: url("../../assets/img/film.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center left;
+  ul li a {
+    color: white !important;
+  }
+  form input {
+    color: white !important;
+  }
+  form input::placeholder {
+    color: rgba(255, 255, 255, 0.281) !important;
+  }
+}
