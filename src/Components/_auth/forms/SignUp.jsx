@@ -205,7 +205,7 @@ export default function SignUp() {
           <p className="text-center mt-4  mb-0">
             Not a member?{" "}
             <Link data-toggle="tab" to="/login">
-              Sign up
+              Login
             </Link>
           </p>
         </div>

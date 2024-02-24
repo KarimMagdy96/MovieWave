@@ -185,7 +185,7 @@ export default function Login(props) {
           <p className="text-center mt-4  mb-0">
             Don't have an account?{" "}
             <Link data-toggle="tab" to="/signup">
-              LogIn
+              SignUp
             </Link>
           </p>
         </div>
