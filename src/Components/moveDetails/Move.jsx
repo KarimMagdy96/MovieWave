@@ -19,10 +19,10 @@ export default function Move() {
   }, []);
 
   return (
-    <div>
+    <div className="heroHeigt ">
       {movieDetails ? (
         <div className="herodetails">
-          <div className=" herofilter w-100  position-relative">
+          <div className=" herofilter w-100   position-relative">
             <img
               src={`  https://image.tmdb.org/t/p/w500/${movieDetails.backdrop_path}`}
               alt=""

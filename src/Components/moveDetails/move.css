@@ -12,10 +12,13 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 75vh;
+  height: calc(75vh - 60px);
   background: rgba(0, 0, 0, 0.64);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 .herodetails .heroimg {
-  height: 75vh;
-}/*# sourceMappingURL=move.css.map */
+  height: calc(75vh - 60px);
+} /*# sourceMappingURL=move.css.map */
+.heroHeigt {
+  margin-top: 60px;
+}

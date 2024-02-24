@@ -9,7 +9,7 @@ export default function Header() {
   }
   return (
     <>
-      <nav className="navbar navbar-expand-md  bg-glass fixed-top">
+      <nav className="navbar navbar-expand-md  bg-glass fixed-top  shadow">
         <div className="container-fluid ">
           <Link className="navbar-brand p-0 m-0" to="/home">
             <img src={img} className="   w-75" alt="logo" />
@@ -45,7 +45,7 @@ export default function Header() {
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li className="nav-item">
                   <Link
-                    className="nav-link active"
+                    className="nav-link active "
                     aria-current="page"
                     to="/home"
                   >

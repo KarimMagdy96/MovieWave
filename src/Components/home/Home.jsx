@@ -24,8 +24,8 @@ export default function Home() {
   // /////////////////
 
   return (
-    <section>
-      <div className=" w-100 rounded-0  vh-100 overflow-hidden  ">
+    <section className="mr-t ">
+      <div className=" w-100 rounded-0  cstHight overflow-hidden  ">
         <div
           id="carouselExampleFade"
           className="carousel w-100 h-100 overflow-hidden  slide carousel-fade"

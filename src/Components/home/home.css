@@ -50,3 +50,7 @@
 .slick-dots {
   display: none !important;
 } /*# sourceMappingURL=home.css.map */
+.cstHight {
+  height: calc(100vh - 60px);
+  margin-top: 60px !important;
+}
