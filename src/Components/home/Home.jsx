@@ -52,10 +52,10 @@ export default function Home() {
                       <span className=" text-danger fw-bold"> 2024-01-05</span>
                     </p>
                     <p className="card-text text-secondary  ">
-                      An ex-CIA operative is thrown back into a dangerous world
-                      when a mysterious woman from his past resurfaces. Now
-                      exposed and targeted by a relentless killer and a rogue
-                      black ops program, he must rely .
+                      Andd ex-CIA operative is thrown back into a dangerous
+                      world when a mysterious woman from his past resurfaces.
+                      Now exposed and targeted by a relentless killer and a
+                      rogue black ops program, he must rely .
                     </p>
                     <button className=" btn btn-danger py-3  fw-light  px-4 shadow rounded-0 fs-6">
                       <i className="fa-solid fa-caret-right me-1"></i>{" "}
