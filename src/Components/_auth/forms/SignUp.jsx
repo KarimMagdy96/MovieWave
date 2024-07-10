@@ -50,7 +50,7 @@ export default function SignUp() {
 
     promise.then(
       function (response) {
-        console.log(response); // Success
+        // Success
         isLoading(false);
 
         const SuccessfullyLogin = () => toast("✅ Successfully Registered");
@@ -96,7 +96,6 @@ export default function SignUp() {
     let myUser = { ...user };
     myUser[e.target.name] = e.target.value;
     setUser(myUser);
-    console.log(user);
   }
 
   // ********************************
@@ -122,13 +121,13 @@ export default function SignUp() {
 
     if (error) {
       errors = error.details[0].message;
-      console.log(errors);
+
       if (errors.includes("password")) {
         errors = "password must be between 8 to 30 characters";
       }
       let failLogin = () => toast(errors);
       failLogin();
-      console.log(errors);
+
       return false;
     }
     return true;

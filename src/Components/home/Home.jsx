@@ -72,7 +72,6 @@ export default function Home() {
             </div>
             {show.map((item, index) => (
               <div key={index} className="carousel-item w-100 h-100">
-                {console.log(item)}
                 <div className=" text-danger container  position-absolute  top-0  bottom-0 start-0   end-0 w-100 h-100  z-3   ">
                   <div className="row  h-100">
                     <div className="col-md-8  h-100  d-flex flex-column justify-content-center  align-items-start">

@@ -47,7 +47,7 @@ export default function Login(props) {
 
     promise.then(
       function (response) {
-        console.log(response); // Success
+        // Success
         isLoading(false);
         const SuccessfullyLogin = () => toast("👋 Welcome");
         SuccessfullyLogin();
@@ -108,7 +108,7 @@ export default function Login(props) {
       }
       let failLogin = () => toast(errors);
       failLogin();
-      console.log(errors);
+
       return false;
     }
     return true;
