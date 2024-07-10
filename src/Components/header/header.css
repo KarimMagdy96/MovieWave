@@ -4,10 +4,5 @@
 
 .bg-glass {
   /* From https://css.glass */
-  background: #0e0d0d;
-  padding-top: 10px !important;
-  padding-bottom: 10px !important;
-} /*# sourceMappingURL=header.css.map */
-.nav-link {
-  color: white !important;
-}
+  background: rgba(255, 255, 255, 0.222);
+}/*# sourceMappingURL=header.css.map */

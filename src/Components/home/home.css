@@ -8,14 +8,11 @@
 }
 
 .carousel-control-prev {
-  left: 30% !important;
-  top: 80% !important;
+  left: -75px !important;
 }
 
 .carousel-control-next {
-  right: 30% !important;
-
-  top: 80% !important;
+  right: -75px !important;
 }
 
 .carousel-item::after {
@@ -49,8 +46,4 @@
 
 .slick-dots {
   display: none !important;
-} /*# sourceMappingURL=home.css.map */
-.cstHight {
-  height: calc(100vh - 60px);
-  margin-top: 60px !important;
-}
+}/*# sourceMappingURL=home.css.map */
