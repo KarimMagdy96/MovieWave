@@ -119,7 +119,7 @@ export default function SignUp() {
       errors = error.details[0].message;
       console.log(errors);
       if (errors.includes("password")) {
-        errors = "password must be alphanumeric and between 8 to 30 characters";
+        errors = "password must be between 8 to 30 characters";
       }
       let failLogin = () => toast(errors);
       failLogin();
