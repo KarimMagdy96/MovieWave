@@ -92,7 +92,7 @@ export default function Login(props) {
   // Validate the form data against the Joi schema
   // *******************************
   const schema = Joi.object({
-    password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{3,30}$")),
+    password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{8,30}$")),
     email: Joi.string().email({
       minDomainSegments: 2,
       tlds: { allow: ["com", "net"] },
@@ -104,7 +104,7 @@ export default function Login(props) {
     if (error) {
       errors = error.details[0].message;
       if (errors.includes("password")) {
-        errors = "password must be alphanumeric and between 3 to 30 characters";
+        errors = "password and between 8 to 30 characters";
       }
       let failLogin = () => toast(errors);
       failLogin();

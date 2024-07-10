@@ -44,7 +44,7 @@ function App() {
         </Route>
 
         {/* Private Routes */}
-        {user ? (
+        {user != null ? (
           <Route element={<Root />}>
             <>
               <Route path="/" element={<Home />} />

@@ -68,6 +68,10 @@ export default function SignUp() {
             toast("❌ So many failed attempts. Please try again later");
 
           myerror();
+        } else if (error.code === 409) {
+          let myerror = () =>
+            toast("❌ error from server side, Please try again later");
+          myerror();
         } else {
           let myerror = () => toast("❌ This email is already Registered");
 

@@ -4,16 +4,13 @@ import Header from "../header/Header";
 
 export default function Root(props) {
   return (
-    console.log(props),
-    (
-      <>
-        <Header />
+    <>
+      <Header />
 
-        <section className="myRoot ">
-          <Outlet></Outlet>
-        </section>
-        <Footer />
-      </>
-    )
+      <section className="myRoot ">
+        <Outlet></Outlet>
+      </section>
+      <Footer />
+    </>
   );
 }
