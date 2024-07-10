@@ -64,7 +64,7 @@ export default function SignUp() {
       function (error) {
         // Failure
 
-        let myerror = () => toast("❌This email is already Registered");
+        let myerror = () => toast("❌ This email is already Registered");
 
         myerror();
 
