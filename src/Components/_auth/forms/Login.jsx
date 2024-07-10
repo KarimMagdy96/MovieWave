@@ -147,6 +147,7 @@ export default function Login(props) {
                 id="email"
                 autoComplete="off"
                 name="email"
+                placeholder="Email"
                 className="form-control py-2 text-white bg-transparent    border-1 border-dark   "
                 required
               />
