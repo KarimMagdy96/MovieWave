@@ -51,7 +51,6 @@ export default function SignUp() {
     promise.then(
       function (response) {
         console.log(response); // Success
-
         isLoading(false);
 
         const SuccessfullyLogin = () => toast("✅ Successfully Registered");
@@ -65,7 +64,7 @@ export default function SignUp() {
       function (error) {
         // Failure
 
-        let myerror = () => toast("❌ username or email already exists");
+        let myerror = () => toast("❌This email is already Registered");
 
         myerror();
 
