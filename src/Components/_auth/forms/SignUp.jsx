@@ -76,8 +76,9 @@ export default function SignUp() {
 
   /************************************/
 
+  //*****************************errror**************************
   async function submitUser(e) {
-    if (schema.validate(user).error == undefined) {
+    if (schema.validate(user).error === undefined) {
       e.preventDefault();
       isLoading(true);
       createUserAccount(user);
@@ -90,26 +91,35 @@ export default function SignUp() {
     let myUser = { ...user };
     myUser[e.target.name] = e.target.value;
     setUser(myUser);
+    console.log(user);
   }
 
   // ********************************
   // *******************************
 
   const schema = Joi.object({
-    name: Joi.string().alphanum().min(3).max(30).required(),
-    password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{3,30}$")),
-    email: Joi.string().email({
-      minDomainSegments: 2,
-      tlds: { allow: ["com", "net"] },
-    }),
+    name: Joi.string().min(3).max(30).required(),
+    password: Joi.string()
+      .pattern(new RegExp("^[a-zA-Z0-9]{8,30}$"))
+      .required(),
+    email: Joi.string()
+      .email({
+        minDomainSegments: 2,
+        tlds: { allow: ["com", "net"] },
+      })
+      .required(),
   });
+
+  // *******************************errror*************************//
 
   function validate() {
     const { error } = schema.validate(user);
+
     if (error) {
       errors = error.details[0].message;
+      console.log(errors);
       if (errors.includes("password")) {
-        errors = "password must be alphanumeric and between 3 to 30 characters";
+        errors = "password must be alphanumeric and between 8 to 30 characters";
       }
       let failLogin = () => toast(errors);
       failLogin();
@@ -152,6 +162,7 @@ export default function SignUp() {
                 autoComplete="off"
                 id="name"
                 name="name"
+                placeholder="Name"
                 className="form-control py-2  text-white   bg-transparent    border-1 border-dark   "
                 required
               />
@@ -167,6 +178,7 @@ export default function SignUp() {
                 id="email"
                 autoComplete="off"
                 name="email"
+                placeholder="Email"
                 className="form-control py-2 text-white bg-transparent    border-1 border-dark   "
                 required
               />
@@ -204,7 +216,7 @@ export default function SignUp() {
           </form>
           <p className="text-center mt-4  mb-0">
             Not a member?{" "}
-            <Link data-toggle="tab" to="/login">
+            <Link className="authBtn" data-toggle="tab" to="/login">
               Login
             </Link>
           </p>

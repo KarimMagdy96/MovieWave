@@ -89,8 +89,8 @@ export default function Login(props) {
   }
 
   // ********************************
+  // Validate the form data against the Joi schema
   // *******************************
-
   const schema = Joi.object({
     password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{3,30}$")),
     email: Joi.string().email({
@@ -185,7 +185,7 @@ export default function Login(props) {
           </form>
           <p className="text-center mt-4  mb-0">
             Don't have an account?{" "}
-            <Link data-toggle="tab" to="/signup">
+            <Link className="authBtn" data-toggle="tab" to="/signup">
               SignUp
             </Link>
           </p>

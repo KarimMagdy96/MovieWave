@@ -12,4 +12,18 @@
 }
 .authMain .loginFormContainer {
   background-color: rgba(0, 0, 0, 0.75);
+}
+.authMain .authBtn {
+  color: #dc3545 !important;
+  font-weight: bold;
+  text-decoration: none;
+}
+.authMain input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.162);
+}
+.authMain input::placeholder {
+  color: rgba(255, 255, 255, 0.162);
+}
+.authMain input:focus {
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
 }/*# sourceMappingURL=authLayout.css.map */
