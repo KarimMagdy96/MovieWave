@@ -18,8 +18,7 @@ export default function Header() {
   const { currentUser } = useAuth();
   return (
     <>
-      <div>{currentUser && currentUser.email}</div>
-      <nav className="navbar navbar-expand-md  bg-glass fixed-top  shadow">
+      <nav className="navbar navbar-expand-md navbar-dark bg-black py-3  bg-glass fixed-top  shadow">
         <div className="container-fluid ">
           <Link className="navbar-brand p-0 m-0" to="/home">
             <img src={img} className="   w-75" alt="logo" />
@@ -40,22 +39,25 @@ export default function Header() {
             id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel"
           >
-            <div className="offcanvas-header">
-              <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
+            <div className="offcanvas-header bg-dark">
+              <h5
+                className="offcanvas-title text-white"
+                id="offcanvasNavbarLabel"
+              >
                 MoveWave
               </h5>
               <button
                 type="button"
-                className="btn-close"
+                className="btn-close btn-close-white"
                 data-bs-dismiss="offcanvas"
                 aria-label="Close"
               />
             </div>
-            <div className="offcanvas-body">
+            <div className="offcanvas-body bg-black ">
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li className="nav-item">
                   <Link
-                    className="nav-link active "
+                    className="nav-link active fw-medium"
                     aria-current="page"
                     to="/home"
                   >
@@ -64,7 +66,7 @@ export default function Header() {
                 </li>
                 <li className="nav-item">
                   <Link
-                    className="nav-link active"
+                    className="nav-link active  fw-medium"
                     aria-current="page"
                     to="/movies"
                   >
@@ -73,7 +75,7 @@ export default function Header() {
                 </li>
                 <li className="nav-item">
                   <Link
-                    className="nav-link active"
+                    className="nav-link active  fw-medium"
                     aria-current="page"
                     to="/about"
                   >
@@ -82,7 +84,7 @@ export default function Header() {
                 </li>
                 <li className="nav-item">
                   <Link
-                    className="nav-link active"
+                    className="nav-link active  fw-medium"
                     aria-current="page"
                     to="/contact"
                   >
@@ -92,7 +94,7 @@ export default function Header() {
                 <li className="nav-item ">
                   <Link
                     onClick={logout}
-                    className="nav-link active"
+                    className="nav-link active  fw-medium"
                     aria-current="page"
                     to="/login"
                   >
