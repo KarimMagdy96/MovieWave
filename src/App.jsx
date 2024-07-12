@@ -11,6 +11,7 @@ import About from "./Components/about/About";
 import ContactUs from "./Components/contactUs/ContactUs";
 import Home from "./Components/home/Home";
 import Move from "./Components/moveDetails/Move";
+
 function App() {
   let user = localStorage.getItem("CurrentUser");
 
@@ -44,24 +45,21 @@ function App() {
         </Route>
 
         {/* Private Routes */}
-        {user != null ? (
-          <Route element={<Root />}>
-            <>
-              <Route path="/" element={<Home />} />
-              <Route path="/move" element={<Move />}>
-                <Route path=":id" element={<Move />} />
-              </Route>
-              <Route path="/movies" element={<AllMoveies />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<ContactUs />} />
-              <Route path="/home" element={<Home />} />
-              <Route path="/movie" element={<Move />} />
-              <Route path="*" element={<NotFound />} />
-            </>
-          </Route>
-        ) : (
-          <Route path="*" element={<Navigate to="/login" />} />
-        )}
+
+        <Route element={<Root />}>
+          <>
+            <Route path="/" element={<Home />} />
+            <Route path="/move" element={<Move />}>
+              <Route path=":id" element={<Move />} />
+            </Route>
+            <Route path="/movies" element={<AllMoveies />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/movie" element={<Move />} />
+            <Route path="*" element={<NotFound />} />
+          </>
+        </Route>
       </Routes>
     </>
   );

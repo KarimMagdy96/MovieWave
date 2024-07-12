@@ -9,12 +9,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import "./index.css";
-import { HashRouter } from "react-router-dom";
 
+import { HashRouter } from "react-router-dom";
+import AuthProvider from "./Context/AuthContext.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <HashRouter>
-      <App />
-    </HashRouter>
-  </React.StrictMode>
+  <AuthProvider>
+    <React.StrictMode>
+      <HashRouter>
+        <App />
+      </HashRouter>
+    </React.StrictMode>
+  </AuthProvider>
 );

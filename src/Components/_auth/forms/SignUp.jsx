@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "../authLayout.css";
 import { Client, Account, ID } from "appwrite";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,139 +6,99 @@ import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Joi from "joi";
+import { useAuth } from "../../../Context/AuthContext";
 
-/****************************************/
-//
-/************************************/
-/************************************/
-/************************************/
-/************************************/
 export default function SignUp() {
+  let emailRef = useRef();
+  let passwordRef = useRef();
+  let userNameRef = useRef();
+  let { signup } = useAuth();
+  let [error, setError] = useState("");
+
+  let [loading, setLoading] = useState(true);
   let navigate = useNavigate();
-  const [user, setUser] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
-  let [Loading, isLoading] = useState(false);
-  let errors = "";
+  const handleSumbit = async (e) => {
+    e.preventDefault();
 
-  /************************************/
-  /************************************/
-  /************************************/
-  /************************************/
-  function navigateToLogin() {
-    navigate("/login");
-    SuccessfullyLogin = () => toast("✅ Successfully Registered");
-    SuccessfullyLogin();
-  }
-  /****************************************/
-  //register user
+    try {
+      setError("");
+      setLoading(true);
+      await signup(emailRef.current.value, passwordRef.current.value);
+      navigate("/home");
+    } catch {
+      setError("Error signing up may be email already exists");
+      let notSuccessfullLogin = () =>
+        toast(" Error signing up may be email already exists");
 
-  async function createUserAccount(user) {
-    // Create a new user account using the Appwrite API.
-
-    const client = new Client()
-
-      .setEndpoint("https://cloud.appwrite.io/v1") // Your API Endpoint
-
-      .setProject("65c9445135cc99abf695"); // Your project ID
-
-    const account = new Account(client);
-
-    const promise = account.create(user.name, user.email, user.password);
-
-    promise.then(
-      function (response) {
-        // Success
-        isLoading(false);
-
-        const SuccessfullyLogin = () => toast("✅ Successfully Registered");
-
-        SuccessfullyLogin();
-
-        // navigate to login
-        navigateToLogin();
-      },
-
-      function (error) {
-        // Failure
-        if (error.code === 429) {
-          let myerror = () =>
-            toast("❌ So many failed attempts. Please try again later");
-
-          myerror();
-        } else if (error.code === 409) {
-          let myerror = () =>
-            toast("❌ error from server side, Please try again later");
-          myerror();
-        } else {
-          let myerror = () => toast("❌ This email is already Registered");
-
-          myerror();
-        }
-
-        isLoading(false);
-      }
-    );
-  }
-
-  /************************************/
-
-  //*****************************errror**************************
-  async function submitUser(e) {
-    if (schema.validate(user).error === undefined) {
-      e.preventDefault();
-      isLoading(true);
-      createUserAccount(user);
-    } else {
-      e.preventDefault();
-      validate();
+      notSuccessfullLogin();
+      setLoading(false);
     }
-  }
-  function getUser(e) {
-    let myUser = { ...user };
-    myUser[e.target.name] = e.target.value;
-    setUser(myUser);
-  }
+  };
 
-  // ********************************
-  // *******************************
+  let validateUser = function (e) {
+    const schema = Joi.object({
+      name: Joi.string().min(3).max(30).required(),
+      password: Joi.string()
+        .pattern(new RegExp("^[a-zA-Z0-9]{8,30}$"))
+        .required(),
+      email: Joi.string()
+        .email({
+          minDomainSegments: 2,
+          tlds: { allow: ["com", "net"] },
+        })
+        .required(),
+    });
 
-  const schema = Joi.object({
-    name: Joi.string().min(3).max(30).required(),
-    password: Joi.string()
-      .pattern(new RegExp("^[a-zA-Z0-9]{8,30}$"))
-      .required(),
-    email: Joi.string()
-      .email({
-        minDomainSegments: 2,
-        tlds: { allow: ["com", "net"] },
-      })
-      .required(),
-  });
+    if (e.target.id == "password") {
+      const singleSchema = Joi.object({ password: schema.extract("password") });
+      const { error } = singleSchema.validate({
+        password: passwordRef.current.value,
+      });
 
-  // *******************************errror*************************//
+      let failLogin = () => {
+        return toast(" [!] Password must be 8-30 characters long");
+      };
 
-  function validate() {
-    const { error } = schema.validate(user);
-
+      if (error) {
+        failLogin();
+      } else {
+      }
+    } else if (e.target.id == "email") {
+      const singleSchema = Joi.object({ email: schema.extract("email") });
+      const { error } = singleSchema.validate({
+        email: emailRef.current.value,
+      });
+      let failLogin = () => {
+        return toast(" [!] Email must be a valid email address");
+      };
+      if (error) {
+        failLogin();
+      } else {
+      }
+    } else if (e.target.id == "name") {
+      const singleSchema = Joi.object({ name: schema.extract("name") });
+      const { error } = singleSchema.validate({
+        name: userNameRef.current.value,
+      });
+      let failLogin = () => {
+        return toast(" [!] Name must be between 3 and 30 characters");
+      };
+      if (error) {
+        failLogin();
+      } else {
+      }
+    }
+    const { error } = schema.validate({
+      name: userNameRef.current.value,
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+    });
     if (error) {
-      errors = error.details[0].message;
-
-      if (errors.includes("password")) {
-        errors = "password must be between 8 to 30 characters";
-      }
-      let failLogin = () => toast(errors);
-      failLogin();
-
-      return false;
+      setLoading(true);
+    } else {
+      setLoading(false);
     }
-    return true;
-  }
-
-  // *******************************
-  // *******************************
+  };
 
   return (
     <div className=" d-flex overflow-hidden    container h-100  justify-content-center  align-items-center  ">
@@ -152,21 +112,22 @@ export default function SignUp() {
         pauseOnFocusLoss
         theme="dark"
       />
-      <div className=" text-white   w-100  d-flex justify-content-center    ">
+      <div className=" text-white  w-100  d-flex justify-content-center">
         <div className=" signin-form  rounded-3  d-flex flex-column align-content-stretch loginFormContainer p-4  justify-content-center">
           <div className="d-flex">
             <div className="w-100">
               <h3 className="mb-4">Sign In</h3>
             </div>
           </div>
-          <form onSubmit={submitUser} className="">
+          <form onSubmit={handleSumbit} className="">
             <div className="form-group mb-3">
               <label className="label mb-1" htmlFor="name">
                 Name
               </label>
               <input
-                onChange={getUser}
                 type="text"
+                ref={userNameRef}
+                onBlur={validateUser}
                 autoComplete="off"
                 id="name"
                 name="name"
@@ -181,9 +142,10 @@ export default function SignUp() {
                 Email
               </label>
               <input
-                onChange={getUser}
                 type="email"
+                onBlur={validateUser}
                 id="email"
+                ref={emailRef}
                 autoComplete="off"
                 name="email"
                 placeholder="Email"
@@ -196,9 +158,10 @@ export default function SignUp() {
                 Password
               </label>
               <input
-                onChange={getUser}
                 id="password"
                 name="password"
+                onBlur={validateUser}
+                ref={passwordRef}
                 autoComplete="off"
                 type="password"
                 className="form-control py-2 text-white  bg-transparent    border-1 border-dark "
@@ -210,15 +173,9 @@ export default function SignUp() {
               <button
                 type="submit"
                 className="form-control py-2  btn btn-danger rounded submit px-3"
+                disabled={loading}
               >
-                {Loading ? (
-                  <>
-                    <span className="spinner-border spinner-border-sm text-light" />
-                    <span className="ms-2">Loading...</span>
-                  </>
-                ) : (
-                  "Register"
-                )}
+                Register
               </button>
             </div>
           </form>

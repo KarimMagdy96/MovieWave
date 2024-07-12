@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import "./header.css";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import img from "../../assets/img/logoDay.png";
+import { useAuth } from "../../Context/AuthContext";
+
 export default function Header() {
-  function logout() {
-    localStorage.removeItem("CurrentUser");
-    localStorage.removeItem("email");
+  async function logout() {
+    try {
+      await signout();
+      Navigate("/login");
+    } catch {
+      seterror("failure to logout");
+    }
   }
+  const { signout } = useAuth();
+  const [error, seterror] = useState("");
+  const { currentUser } = useAuth();
   return (
     <>
+      <div>{currentUser && currentUser.email}</div>
       <nav className="navbar navbar-expand-md  bg-glass fixed-top  shadow">
         <div className="container-fluid ">
           <Link className="navbar-brand p-0 m-0" to="/home">

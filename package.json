@@ -14,6 +14,7 @@
     "appwrite": "^14.0.0-rc.5",
     "axios": "^1.6.7",
     "bootstrap": "^5.3.3",
+    "firebase": "^10.12.3",
     "flag-icons": "^7.1.0",
     "joi": "^17.12.2",
     "react": "^18.2.0",

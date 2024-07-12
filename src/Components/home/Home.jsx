@@ -3,10 +3,10 @@ import "./home.css";
 import axios from "axios";
 import SimpleSlider from "../slider/Slider";
 import { Link } from "react-router-dom";
-
+import { useAuth } from "../../Context/AuthContext";
 export default function Home() {
+  const { currentUser } = useAuth();
   const [show, setAllShows] = useState([]);
-
   useEffect(() => {
     async function fetchshow() {
       try {
