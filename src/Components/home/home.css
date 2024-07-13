@@ -4,7 +4,7 @@
   background-image: url("../../assets/img/film.png");
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 380px;
+  padding-top: 110px;
 }
 
 .carousel-control-prev {
@@ -29,27 +29,16 @@
   background-color: rgba(255, 255, 255, 0.562);
 }
 
-.tt {
-  width: 100 !important;
-}
-
-.slick-dots {
-  display: none !important;
-}
-
 .mytest {
   background-color: black !important;
-  height: 60vh !important;
+  height: 75vh !important;
   margin-top: 72px;
 }
 .mytest .imgContainer {
-  height: 60vh !important;
+  height: 75vh !important;
 }
 
 .sliderTop {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  transform: translateY(80%);
+  background-color: black;
+  padding-top: 50px;
 }/*# sourceMappingURL=home.css.map */

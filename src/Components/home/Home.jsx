@@ -42,6 +42,13 @@ export default function Home() {
         <Slider {...settings}>
           {show.map((item, index) => (
             <div key={index} className=" imgContainer carousel-item">
+              <div className=" text-warning text-center shadow  z-3 position-absolute w-100 h-100 d-flex flex-column align-items-center justify-content-center">
+                <h2 className="h1 ">Free Movies to Watch, Anytime Anywhere.</h2>
+                <p>
+                  The search is over! Let Plex help you find the perfect movie
+                  to watch tonight for free.
+                </p>
+              </div>
               <img
                 src={`https://image.tmdb.org/t/p/w500/${item.backdrop_path}`}
                 className="d-block w-100 h-100 "
