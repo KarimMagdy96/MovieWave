@@ -4,7 +4,13 @@
   background-image: url("../../assets/img/film.png");
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 110px;
+  padding: 110px 0 110px 0;
+}
+.home .searchData {
+  background-color: whitesmoke;
+}
+.home .searchData :focus {
+  border-color: transparent !important;
 }
 
 .carousel-control-prev {
@@ -29,20 +35,20 @@
   background-color: rgba(255, 255, 255, 0.562);
 }
 
-.mytest {
+.homeContainer {
   background-color: black !important;
   height: 65vh !important;
   margin-top: 68px;
 }
-.mytest .imgContainer {
+.homeContainer .imgContainer {
   height: 65vh !important;
 }
-.mytest .imgContainer .sliderText h2 {
+.homeContainer .imgContainer .sliderText h2 {
   font-weight: bolder;
   font-size: 2rem;
   padding-bottom: 20px;
 }
-.mytest .imgContainer .sliderText p {
+.homeContainer .imgContainer .sliderText p {
   font-size: 1.5rem;
 }
 

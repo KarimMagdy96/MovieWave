@@ -1,45 +1,56 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./home.css";
 import axios from "axios";
 import SimpleSlider from "../slider/Slider";
 import { Link } from "react-router-dom";
-
 import { useAuth } from "../../Context/AuthContext";
 import Slider from "react-slick";
 export default function Home() {
   const { currentUser } = useAuth();
   const [show, setAllShows] = useState([]);
-  useEffect(() => {
-    async function fetchshow() {
-      try {
-        const { data } = await axios.get(
-          "https://api.themoviedb.org/3/discover/movie?api_key=fd3c31e2d7a54303dc08756b66824aef"
-        );
-        setAllShows(data.results);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+  async function fetchshow() {
+    try {
+      const { data } = await axios.get(
+        "https://api.themoviedb.org/3/discover/movie?api_key=fd3c31e2d7a54303dc08756b66824aef"
+      );
+      setAllShows(data.results);
+    } catch (error) {
+      console.error("Error fetching data:", error);
     }
-
+  }
+  useEffect(() => {
     fetchshow();
   }, []);
   // /////////////////
+  let SearchTerm = useRef();
   const settings = {
     dots: false,
     fade: true,
-
     infinite: true,
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 900,
-    autoplaySpeed: 500,
+    speed: 1500,
+    autoplaySpeed: 1500,
     cssEase: "linear",
   };
-
+  let Search = async function () {
+    let searchTerm = SearchTerm.current.value;
+    let url = `https://api.themoviedb.org/3/search/movie?api_key=fd3c31e2d7a54303dc08756b66824aef&query=${searchTerm}`;
+    try {
+      const { data } = await axios.get(url);
+      if (data.results.length > 0) {
+        setAllShows(data.results);
+      } else if (data.results.length === 0) {
+        fetchshow();
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
   return (
     <section className=" overflow-hidden">
-      <section className="slider-container mytest  w-100 rounded-0  cstHight">
+      <section className="slider-container homeContainer  w-100 rounded-0  cstHight">
         <Slider {...settings}>
           {show.map((item, index) => (
             <div key={index} className=" imgContainer carousel-item">
@@ -78,7 +89,9 @@ export default function Home() {
             </h2>
             <input
               type="text"
-              className="form-control p-2 "
+              onChange={Search}
+              ref={SearchTerm}
+              className="form-control p-2 searchData"
               placeholder="Search"
             />
           </div>
