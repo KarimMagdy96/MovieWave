@@ -52,7 +52,7 @@ export default function Home() {
         </Slider>
       </section>
       <div className=" w-100     position-relative  ">
-        <div className=" container-fluid   sliderTop   ">
+        <div className="   sliderTop   ">
           <SimpleSlider show={show} />
         </div>
       </div>
