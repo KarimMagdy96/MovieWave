@@ -45,6 +45,9 @@
 
 .mytest {
   background-color: green !important;
-  max-height: 85vh !important;
+  height: 75vh !important;
   margin-top: 72px;
+}
+.mytest .imgContainer {
+  height: 75vh !important;
 }/*# sourceMappingURL=home.css.map */

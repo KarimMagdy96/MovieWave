@@ -40,10 +40,7 @@ export default function Home() {
       <div className="slider-container mytest  w-100 rounded-0  cstHight overflow-hidden ">
         <Slider {...settings}>
           {show.map((item, index) => (
-            <div key={index} className=" w-100 h-100">
-              <div className=" text-danger container  position-absolute  top-0  bottom-0 start-0   end-0 w-100 h-100  z-3   ">
-                <div className="row  h-100"></div>
-              </div>
+            <div key={index} className=" imgContainer">
               <img
                 src={`https://image.tmdb.org/t/p/w500/${item.backdrop_path}`}
                 className="d-block w-100 h-100 "
