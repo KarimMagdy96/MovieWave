@@ -28,6 +28,7 @@ export default function Home() {
     dots: true,
     fade: true,
     infinite: true,
+    arrows: false,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -37,7 +38,7 @@ export default function Home() {
   return (
     <section className="mr-t ">
       {/* ********** */}
-      <div className="slider-container mytest  w-100 rounded-0  cstHight overflow-hidden ">
+      <section className="slider-container mytest  w-100 rounded-0  cstHight    position-relative">
         <Slider {...settings}>
           {show.map((item, index) => (
             <div key={index} className=" imgContainer">
@@ -49,19 +50,16 @@ export default function Home() {
             </div>
           ))}
         </Slider>
-      </div>
-      {/* ***************** */}
-      <section className="slidertest w-100 overflow-hidden  ">
-        <div>
-          <div className=" fw-bold fs-3   text-center mt-5 container text-white">
-            <i className="fa-solid fa-minus fs-5"></i> Upcoming Movies{" "}
-            <i className="fa-solid fa-minus fs-5"></i>
-          </div>
-          <div className=" container-fluid  ">
-            <SimpleSlider show={show} />
+
+        <div className="slidertest w-100 overflow-hidden  bg-transparent  position-absolute defrant  ">
+          <div>
+            <div className=" container-fluid  bg-transparent ">
+              <SimpleSlider show={show} />
+            </div>
           </div>
         </div>
       </section>
+      {/* ***************** */}
       {/* ******************* */}
       <div className="home ">
         <div className="container ">
