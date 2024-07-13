@@ -48,7 +48,7 @@ export default function Home() {
                   The search is over! Let MovieWave help you find the perfect
                   movie.
                 </p>
-                <button className=" p-3 btn btn-danger rounded-pill">
+                <button className=" p-3 btn btn-danger rounded-pill shadow">
                   Watch Now
                 </button>
               </div>

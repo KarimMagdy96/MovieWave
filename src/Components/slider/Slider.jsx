@@ -5,7 +5,7 @@ function AutoPlay(props) {
   const settings = {
     dots: false,
     infinite: true,
-    slidesToShow: 6,
+    slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
     speed: 2000,
