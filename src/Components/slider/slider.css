@@ -1,3 +1,6 @@
 .testssss {
-  height: 280px !important;
+  min-height: 300px !important;
+}
+.testssss img {
+  min-height: 300px !important;
 }/*# sourceMappingURL=slider.css.map */

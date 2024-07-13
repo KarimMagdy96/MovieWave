@@ -41,11 +41,11 @@ function AutoPlay(props) {
   };
   return (
     <div className="row row-cols-1 row-cols-md-4  w-100 overflow-hidden m-auto bg-transparent">
-      <div className="slider-container w-100  bg-transparent">
-        <Slider {...settings} className="slider w-100 bg-transparent ">
+      <div className="slider-container w-100   bg-transparent">
+        <Slider {...settings} className="slider   bg-transparent ">
           {props.show.map((item) => (
-            <div key={item.id}>
-              <div className="card h-100 mx-1 bg-transparent text-white testssss ">
+            <div className="h-100" key={item.id}>
+              <div className="card   mx-1 bg-transparent text-white testssss ">
                 <img
                   src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
                   className="card-img-top rounded-3 h-100 "
