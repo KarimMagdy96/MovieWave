@@ -31,11 +31,11 @@
 
 .mytest {
   background-color: black !important;
-  height: 75vh !important;
+  height: 60vh !important;
   margin-top: 72px;
 }
 .mytest .imgContainer {
-  height: 75vh !important;
+  height: 60vh !important;
 }
 .mytest .imgContainer .sliderText h2 {
   font-weight: bolder;
