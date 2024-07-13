@@ -30,8 +30,8 @@ export default function Home() {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 1500,
-    autoplaySpeed: 1500,
+    speed: 2000,
+    autoplaySpeed: 2000,
     cssEase: "linear",
   };
   let Search = async function () {
