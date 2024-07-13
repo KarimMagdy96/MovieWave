@@ -37,6 +37,14 @@
 .mytest .imgContainer {
   height: 75vh !important;
 }
+.mytest .imgContainer .sliderText h2 {
+  font-weight: bolder;
+  font-size: 2.1rem;
+  padding-bottom: 20px;
+}
+.mytest .imgContainer .sliderText p {
+  font-size: 1.5rem;
+}
 
 .sliderTop {
   background-color: black;

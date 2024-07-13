@@ -42,8 +42,8 @@ export default function Home() {
         <Slider {...settings}>
           {show.map((item, index) => (
             <div key={index} className=" imgContainer carousel-item">
-              <div className=" text-warning text-center shadow px-3 z-3 position-absolute w-100 h-100 d-flex flex-column align-items-center justify-content-center">
-                <h2 className="h1 ">Free Movies to Watch, Anytime Anywhere.</h2>
+              <div className=" text-warning sliderText  shadow px-3  z-3 position-absolute w-100 h-100 d-flex flex-column align-items-center justify-content-center">
+                <h2>Free Movies to Watch, Anytime Anywhere.</h2>
                 <p>
                   The search is over! Let Plex help you find the perfect movie
                   to watch tonight for free.
