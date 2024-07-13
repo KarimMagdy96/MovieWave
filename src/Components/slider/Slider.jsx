@@ -45,7 +45,7 @@ function AutoPlay(props) {
         <Slider {...settings} className="slider w-100 bg-transparent ">
           {props.show.map((item) => (
             <div key={item.id}>
-              <div className="card h-100 mx-2 bg-transparent text-white ">
+              <div className="card h-100 mx-1 bg-transparent text-white ">
                 <img
                   src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
                   className="card-img-top rounded-3 "
