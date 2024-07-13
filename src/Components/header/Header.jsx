@@ -71,11 +71,10 @@ export default function Header() {
                     }`}
                     aria-current="page"
                     to="/home"
-                  >
-                    <span data-bs-dismiss="offcanvas">Home</span>
-                  </Link>
+                  ></Link>
                 </li>
                 <li className="nav-item">
+                  <span data-bs-dismiss="offcanvas">Home</span>
                   <Link
                     onClick={() => handleClick("movies")}
                     className={`nav-link fw-medium ${
