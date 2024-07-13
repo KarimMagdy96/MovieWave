@@ -3,8 +3,8 @@ import "./header.css";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import img from "../../assets/img/logoDay.png";
 import { useAuth } from "../../Context/AuthContext";
-
 export default function Header() {
+  const [activeLink, setActiveLink] = useState(null);
   async function logout() {
     try {
       await signout();
@@ -13,6 +13,12 @@ export default function Header() {
       seterror("failure to logout");
     }
   }
+
+  const handleClick = (link) => {
+    setActiveLink(link);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    // Close the off-canvas menu
+  };
   const { signout } = useAuth();
   const [error, seterror] = useState("");
   const { currentUser } = useAuth();
@@ -57,7 +63,10 @@ export default function Header() {
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li className="nav-item">
                   <Link
-                    className="nav-link active fw-medium"
+                    onClick={() => handleClick("home")}
+                    className={` nav-link fw-medium ${
+                      activeLink === "home" ? "active" : ""
+                    }`}
                     aria-current="page"
                     to="/home"
                   >
@@ -66,7 +75,10 @@ export default function Header() {
                 </li>
                 <li className="nav-item">
                   <Link
-                    className="nav-link active  fw-medium"
+                    onClick={() => handleClick("movies")}
+                    className={`nav-link fw-medium ${
+                      activeLink === "movies" ? "active" : ""
+                    }`}
                     aria-current="page"
                     to="/movies"
                   >
@@ -75,7 +87,10 @@ export default function Header() {
                 </li>
                 <li className="nav-item">
                   <Link
-                    className="nav-link active  fw-medium"
+                    onClick={() => handleClick("about")}
+                    className={`nav-link fw-medium ${
+                      activeLink === "about" ? "active" : ""
+                    }`}
                     aria-current="page"
                     to="/about"
                   >
@@ -84,7 +99,10 @@ export default function Header() {
                 </li>
                 <li className="nav-item">
                   <Link
-                    className="nav-link active  fw-medium"
+                    onClick={() => handleClick("contact")}
+                    className={`nav-link fw-medium ${
+                      activeLink === "contact" ? "active" : ""
+                    }`}
                     aria-current="page"
                     to="/contact"
                   >
@@ -94,7 +112,7 @@ export default function Header() {
                 <li className="nav-item ">
                   <Link
                     onClick={logout}
-                    className="nav-link active  fw-medium"
+                    className="nav-link   fw-medium"
                     aria-current="page"
                     to="/login"
                   >

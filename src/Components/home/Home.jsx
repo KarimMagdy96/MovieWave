@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../Context/AuthContext";
 import Slider from "react-slick";
 export default function Home() {
-  const { currentUser } = useAuth();
   const [show, setAllShows] = useState([]);
   async function fetchshow() {
     try {

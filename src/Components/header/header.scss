@@ -7,6 +7,10 @@
     box-shadow: none !important;
     border-color: transparent !important;
   }
+  .active {
+    color: tomato !important;
+    font-weight: bold !important;
+  }
   .btn-close {
     --bs-btn-close-focus-shadow: transparent !important;
   }

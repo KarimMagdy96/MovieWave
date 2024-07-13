@@ -6,6 +6,10 @@
   box-shadow: none !important;
   border-color: transparent !important;
 }
+.navbar .active {
+  color: tomato !important;
+  font-weight: bold !important;
+}
 .navbar .btn-close {
   --bs-btn-close-focus-shadow: transparent !important;
 }/*# sourceMappingURL=header.css.map */
