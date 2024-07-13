@@ -18,16 +18,6 @@ export default function Header() {
     setActiveLink(link);
     window.scrollTo({ top: 0, behavior: "smooth" });
     // Close the off-canvas menu
-    const offcanvasElement = document.getElementById("offcanvasNavbar");
-    if (offcanvasElement) {
-      offcanvasElement.classList.remove("show");
-      document.body.removeAttribute("style");
-      document.getElementById("navbar").removeAttribute("style");
-      document.querySelector(".fade").remove();
-      document.querySelector(".offcanvas").classList.remove("show");
-      document.querySelector(".offcanvas").removeAttribute("aria-modal");
-      document.querySelector(".offcanvas").removeAttribute("role");
-    }
   };
   const { signout } = useAuth();
   const [error, seterror] = useState("");
