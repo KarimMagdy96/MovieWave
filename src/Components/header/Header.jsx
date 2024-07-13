@@ -4,7 +4,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import img from "../../assets/img/logoDay.png";
 import { useAuth } from "../../Context/AuthContext";
 export default function Header() {
-  const [activeLink, setActiveLink] = useState(null);
+  const [activeLink, setActiveLink] = useState("home");
   async function logout() {
     try {
       await signout();
