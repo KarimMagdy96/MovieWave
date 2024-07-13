@@ -25,19 +25,20 @@ export default function Home() {
   }, []);
   // /////////////////
   const settings = {
-    dots: true,
+    dots: false,
     fade: true,
+
     infinite: true,
-    arrows: false,
-    speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
-    waitForAnimate: false,
+    autoplay: true,
+    speed: 900,
+    autoplaySpeed: 500,
+    cssEase: "linear",
   };
 
   return (
-    <section className="mr-t ">
-      {/* ********** */}
+    <section className=" overflow-hidden">
       <section className="slider-container mytest  w-100 rounded-0  cstHight">
         <Slider {...settings}>
           {show.map((item, index) => (
@@ -70,6 +71,17 @@ export default function Home() {
       {/* ******************* */}
       <div className="home ">
         <div className="container ">
+          <div className=" mb-5 text-center">
+            <h2 className=" text-white mb-4">
+              The Smart Way To Pick A{" "}
+              <span className=" text-danger">Movie</span>
+            </h2>
+            <input
+              type="text"
+              className="form-control p-2 "
+              placeholder="Search"
+            />
+          </div>
           <div className="row row-cols-2 row-cols-md-4 g-4">
             {show.map((item) => (
               <div className="col" key={item.id}>
