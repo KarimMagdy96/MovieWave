@@ -46,8 +46,11 @@ export default function Home() {
                 <h2>Free Movies to Watch</h2>
                 <p>
                   The search is over! Let MovieWave help you find the perfect
-                  movie to watch.
+                  movie.
                 </p>
+                <button className=" p-3 btn btn-danger rounded-pill">
+                  Watch Now
+                </button>
               </div>
               <img
                 src={`https://image.tmdb.org/t/p/w500/${item.backdrop_path}`}
