@@ -39,11 +39,11 @@
 
 .mytest {
   background-color: green !important;
-  height: 60vh !important;
+  height: 75vh !important;
   margin-top: 72px;
 }
 .mytest .imgContainer {
-  height: 60vh !important;
+  height: 75vh !important;
 }
 
 .sliderTop {
