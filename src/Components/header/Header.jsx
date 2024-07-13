@@ -63,7 +63,7 @@ export default function Header() {
             </div>
             <div className="offcanvas-body bg-black ">
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li className="nav-item">
+                <li data-bs-dismiss="offcanvas" className="nav-item">
                   <Link
                     onClick={() => handleClick("home")}
                     className={` nav-link fw-medium ${
@@ -71,10 +71,12 @@ export default function Header() {
                     }`}
                     aria-current="page"
                     to="/home"
-                  ></Link>
+                  >
+                    {" "}
+                    Home
+                  </Link>
                 </li>
-                <li className="nav-item">
-                  <span data-bs-dismiss="offcanvas">Home</span>
+                <li data-bs-dismiss="offcanvas" className="nav-item">
                   <Link
                     onClick={() => handleClick("movies")}
                     className={`nav-link fw-medium ${
@@ -83,33 +85,31 @@ export default function Header() {
                     aria-current="page"
                     to="/movies"
                   >
-                    <span data-bs-dismiss="offcanvas">Movies</span>
+                    Movies
                   </Link>
                 </li>
-                <li className="nav-item">
+                <li data-bs-dismiss="offcanvas" className="nav-item">
                   <Link
                     onClick={() => handleClick("about")}
                     className={`nav-link fw-medium ${
                       activeLink === "about" ? "active" : ""
                     }`}
                     aria-current="page"
-                    data-bs-dismiss="offcanvas"
                     to="/about"
                   >
-                    <span data-bs-dismiss="offcanvas">About</span>
+                    About
                   </Link>
                 </li>
-                <li className="nav-item">
+                <li data-bs-dismiss="offcanvas" className="nav-item">
                   <Link
                     onClick={() => handleClick("contact")}
                     className={`nav-link fw-medium ${
                       activeLink === "contact" ? "active" : ""
                     }`}
                     aria-current="page"
-                    data-bs-dismiss="offcanvas"
                     to="/contact"
                   >
-                    <span data-bs-dismiss="offcanvas">Contact</span>
+                    Contact
                   </Link>
                 </li>
                 <li className="nav-item ">
