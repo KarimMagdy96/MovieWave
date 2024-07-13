@@ -81,6 +81,7 @@ export default function Header() {
                       activeLink === "home" ? "active" : ""
                     }`}
                     aria-current="page"
+                    data-bs-dismiss="offcanvas"
                     to="/home"
                   >
                     Home
@@ -93,6 +94,7 @@ export default function Header() {
                       activeLink === "movies" ? "active" : ""
                     }`}
                     aria-current="page"
+                    data-bs-dismiss="offcanvas"
                     to="/movies"
                   >
                     Movies
@@ -105,6 +107,7 @@ export default function Header() {
                       activeLink === "about" ? "active" : ""
                     }`}
                     aria-current="page"
+                    data-bs-dismiss="offcanvas"
                     to="/about"
                   >
                     About
@@ -117,6 +120,7 @@ export default function Header() {
                       activeLink === "contact" ? "active" : ""
                     }`}
                     aria-current="page"
+                    data-bs-dismiss="offcanvas"
                     to="/contact"
                   >
                     Contact
