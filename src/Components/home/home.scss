@@ -5,7 +5,7 @@
   background-repeat: no-repeat;
   background-size: cover;
 
-  padding-top: 110px;
+  padding-top: 380px;
 }
 .carousel-control-prev {
   left: -75px !important;
@@ -17,7 +17,7 @@
   content: "";
   position: absolute;
   inset: 0 !important;
-  background: rgba(0, 0, 0, 0.64);
+  background: rgba(0, 0, 0, 0.438);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(0.6px);
   -webkit-backdrop-filter: blur(0.6px);
@@ -26,10 +26,7 @@
   background-color: rgba(255, 255, 255, 0.562);
 }
 
-.slidertest {
-  max-width: 100%;
-  background-color: black;
-  padding-bottom: 120px !important;
+.sliderContainer {
 }
 .tt {
   width: 100 !important;
@@ -46,8 +43,10 @@
     height: 60vh !important;
   }
 }
-.defrant {
-  bottom: -90%;
+.sliderTop {
+  position: absolute;
+  bottom: 0;
   left: 0;
   right: 0;
+  transform: translateY(80%);
 }

@@ -38,10 +38,10 @@ export default function Home() {
   return (
     <section className="mr-t ">
       {/* ********** */}
-      <section className="slider-container mytest  w-100 rounded-0  cstHight    position-relative">
+      <section className="slider-container mytest  w-100 rounded-0  cstHight">
         <Slider {...settings}>
           {show.map((item, index) => (
-            <div key={index} className=" imgContainer">
+            <div key={index} className=" imgContainer carousel-item">
               <img
                 src={`https://image.tmdb.org/t/p/w500/${item.backdrop_path}`}
                 className="d-block w-100 h-100 "
@@ -50,23 +50,16 @@ export default function Home() {
             </div>
           ))}
         </Slider>
-
-        <div className="slidertest w-100 overflow-hidden  bg-transparent  position-absolute defrant  ">
-          <div>
-            <div className=" container-fluid  bg-transparent ">
-              <SimpleSlider show={show} />
-            </div>
-          </div>
-        </div>
       </section>
+      <div className=" w-100     position-relative  ">
+        <div className=" container-fluid   sliderTop   ">
+          <SimpleSlider show={show} />
+        </div>
+      </div>
       {/* ***************** */}
       {/* ******************* */}
       <div className="home ">
         <div className="container ">
-          <div className=" fw-bold fs-5 mb-5 text-white">
-            latest Distributions <i className="fa-solid fa-minus fs-5"></i>
-          </div>
-
           <div className="row row-cols-2 row-cols-md-4 g-4">
             {show.map((item) => (
               <div className="col" key={item.id}>
@@ -74,7 +67,7 @@ export default function Home() {
                   to={`/move/${item.id} `}
                   className=" text-decoration-none"
                 >
-                  <div className="card h-100 bg-transparent text-white border-0">
+                  <div className="card h-100 bg-transparent text-white border-0 ">
                     <img
                       src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
                       className="card-img-top rounded-3"
