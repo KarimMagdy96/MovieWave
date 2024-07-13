@@ -17,7 +17,6 @@ export default function Header() {
   const handleClick = (link) => {
     setActiveLink(link);
     window.scrollTo({ top: 0, behavior: "smooth" });
-    // Close the off-canvas menu
   };
   const { signout } = useAuth();
   const [error, seterror] = useState("");
@@ -71,10 +70,9 @@ export default function Header() {
                       activeLink === "home" ? "active" : ""
                     }`}
                     aria-current="page"
-                    data-bs-dismiss="offcanvas"
                     to="/home"
                   >
-                    Home
+                    <span data-bs-dismiss="offcanvas">Home</span>
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -84,10 +82,9 @@ export default function Header() {
                       activeLink === "movies" ? "active" : ""
                     }`}
                     aria-current="page"
-                    data-bs-dismiss="offcanvas"
                     to="/movies"
                   >
-                    Movies
+                    <span data-bs-dismiss="offcanvas">Movies</span>
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -100,7 +97,7 @@ export default function Header() {
                     data-bs-dismiss="offcanvas"
                     to="/about"
                   >
-                    About
+                    <span data-bs-dismiss="offcanvas">About</span>
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -113,7 +110,7 @@ export default function Header() {
                     data-bs-dismiss="offcanvas"
                     to="/contact"
                   >
-                    Contact
+                    <span data-bs-dismiss="offcanvas">Contact</span>
                   </Link>
                 </li>
                 <li className="nav-item ">
