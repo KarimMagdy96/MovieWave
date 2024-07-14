@@ -98,6 +98,9 @@ export default function Home() {
             {show.map((item) => (
               <div className="col" key={item.id}>
                 <Link
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
                   to={`/move/${item.id} `}
                   className=" text-decoration-none"
                 >
