@@ -86,7 +86,7 @@ export default function Home() {
                     src={
                       item.poster_path
                         ? `https://image.tmdb.org/t/p/w500/${item.poster_path}`
-                        : "https://www.pngitem.com/pimgs/m/177-1777160_no-image-available-png-download-no-image-available-png.png"
+                        : "https://placehold.co/500x750"
                     }
                     className="d-block w-100 h-100 "
                     alt={item.title}
