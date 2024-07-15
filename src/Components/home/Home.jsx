@@ -83,7 +83,11 @@ export default function Home() {
                     </AnchorLink>
                   </div>
                   <img
-                    src={`https://image.tmdb.org/t/p/w500/${item.backdrop_path}`}
+                    src={
+                      item.poster_path
+                        ? `https://image.tmdb.org/t/p/w500/${item.poster_path}`
+                        : "https://www.pngitem.com/pimgs/m/177-1777160_no-image-available-png-download-no-image-available-png.png"
+                    }
                     className="d-block w-100 h-100 "
                     alt={item.title}
                   />
@@ -125,7 +129,11 @@ export default function Home() {
                     >
                       <div className="card h-100 bg-transparent text-white border-0 ">
                         <img
-                          src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
+                          src={
+                            item.poster_path
+                              ? `https://image.tmdb.org/t/p/w500/${item.poster_path}`
+                              : "https://placehold.co/500x750"
+                          }
                           className="card-img-top rounded-3"
                           alt={item.title}
                         />
