@@ -5,6 +5,7 @@ import SimpleSlider from "../slider/Slider";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../Context/AuthContext";
 import Slider from "react-slick";
+import { ToastContainer, toast } from "react-toastify";
 import { ID } from "appwrite";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
     } catch (error) {
       console.error("Error fetching data:", error);
       setDataLoaded(false);
+      return toast(" No Result found");
     }
   }
   useEffect(() => {
@@ -40,6 +42,7 @@ export default function Home() {
     cssEase: "linear",
     arrows: false,
   };
+  // search func
   let Search = async function () {
     let searchTerm = SearchTerm.current.value;
     let url = `https://api.themoviedb.org/3/search/movie?api_key=fd3c31e2d7a54303dc08756b66824aef&query=${searchTerm}`;
@@ -49,6 +52,7 @@ export default function Home() {
         setAllShows(data.results);
       } else if (data.results.length === 0) {
         fetchshow();
+        toast("No Result Found");
       }
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -57,7 +61,6 @@ export default function Home() {
 
   return (
     <>
-      {console.log("hello", location)}
       {dataLoaded ? (
         <div className="loader-container">
           <div className="pulsing-circle" />
@@ -65,6 +68,16 @@ export default function Home() {
       ) : (
         <section>
           <section className="slider-container homeContainer   w-100 rounded-0  cstHight">
+            <ToastContainer
+              position="top-right"
+              autoClose={1500}
+              hideProgressBar={true}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              theme="dark"
+            />
             <Slider {...settings}>
               {show.map((item, index) => (
                 <div key={index} className=" imgContainer carousel-item">
