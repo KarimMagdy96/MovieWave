@@ -82,12 +82,9 @@ export default function Home() {
                       Watch Now
                     </AnchorLink>
                   </div>
+
                   <img
-                    src={
-                      item.poster_path
-                        ? `https://image.tmdb.org/t/p/w500/${item.poster_path}`
-                        : "https://placehold.co/500x750"
-                    }
+                    src={`https://image.tmdb.org/t/p/w500/${item.backdrop_path}`}
                     className="d-block w-100 h-100 "
                     alt={item.title}
                   />
