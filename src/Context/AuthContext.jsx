@@ -11,6 +11,7 @@ const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState();
+  const [dataLoaded, setDataLoaded] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
   const signup = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -37,6 +38,8 @@ const AuthProvider = ({ children }) => {
         signup,
         signout,
         login,
+        dataLoaded,
+        setDataLoaded,
       }}
     >
       {!isLoading && children}

@@ -1,1 +1,8 @@
-/*# sourceMappingURL=notfound.css.map */
+.notFound {
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  color: white;
+  align-items: center;
+}/*# sourceMappingURL=notfound.css.map */

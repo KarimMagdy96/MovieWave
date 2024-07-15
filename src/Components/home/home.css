@@ -9,8 +9,9 @@
 .home .searchData {
   background-color: whitesmoke;
 }
-.home .searchData :focus {
+.home .searchData:focus {
   border-color: transparent !important;
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25) !important;
 }
 
 .carousel-control-prev {
@@ -55,4 +56,30 @@
 .sliderTop {
   background-color: black;
   padding-top: 50px;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.947);
+  height: 100vh;
+}
+.loader-container .pulsing-circle {
+  width: 50px;
+  height: 50px;
+  background-color: #ff5c35;
+  border-radius: 50%;
+  animation: pulse 2.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
 }/*# sourceMappingURL=home.css.map */

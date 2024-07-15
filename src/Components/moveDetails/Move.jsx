@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./move.css";
 import { useParams } from "react-router-dom";
-import { func } from "joi";
 export default function Move() {
   let { id } = useParams();
   const [movieDetails, setmovieDetails] = useState(null);
@@ -12,6 +11,9 @@ export default function Move() {
       .then((response) => response.json())
       .then((data) => {
         setmovieDetails(data);
+      })
+      .catch((err) => {
+        console.error("Error:", err);
       });
   }
   useEffect(() => {
@@ -79,7 +81,9 @@ export default function Move() {
           </div>
         </div>
       ) : (
-        "jyyyyyyyyyyyyy"
+        <div className="loader-container">
+          <div className="pulsing-circle" />
+        </div>
       )}
     </div>
   );
