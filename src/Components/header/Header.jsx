@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./header.css";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import img from "../../assets/img/logoDay.png";
 import { useAuth } from "../../Context/AuthContext";
 export default function Header() {
@@ -14,15 +14,14 @@ export default function Header() {
     }
   }
 
+  let { pathname } = useLocation();
   const handleClick = (link) => {
     setActiveLink(link);
+
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   const { signout } = useAuth();
-  const [error, seterror] = useState("");
-  const { currentUser } = useAuth();
-  const location = useLocation();
-  console.log(location);
+
   return (
     <>
       <nav

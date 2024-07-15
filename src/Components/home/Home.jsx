@@ -5,6 +5,8 @@ import SimpleSlider from "../slider/Slider";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../Context/AuthContext";
 import Slider from "react-slick";
+import { ID } from "appwrite";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 export default function Home() {
   const [show, setAllShows] = useState([]);
   async function fetchshow() {
@@ -52,8 +54,10 @@ export default function Home() {
       console.error("Error fetching data:", error);
     }
   };
+
   return (
     <>
+      {console.log("hello", location)}
       {dataLoaded ? (
         <div className="loader-container">
           <div className="pulsing-circle" />
@@ -70,18 +74,18 @@ export default function Home() {
                       The search is over! Let MovieWave help you find the
                       perfect movie.
                     </p>
-                    <Link
-                      to="/movies"
+                    <AnchorLink
+                      offset="100"
+                      href="#favMovies"
                       className=" p-3 btn btn-danger rounded-pill shadow"
                     >
                       Watch Now
-                    </Link>
+                    </AnchorLink>
                   </div>
                   <img
-                    loading="lazy"
                     src={`https://image.tmdb.org/t/p/w500/${item.backdrop_path}`}
                     className="d-block w-100 h-100 "
-                    alt=""
+                    alt={item.title}
                   />
                 </div>
               ))}
@@ -97,7 +101,7 @@ export default function Home() {
           <div className="home ">
             <div className="container ">
               <div className=" mb-5 text-center">
-                <h2 className=" text-white mb-4">
+                <h2 id="favMovies" className=" text-white mb-4">
                   The Smart Way To Pick A{" "}
                   <span className=" text-danger">Movie</span>
                 </h2>
@@ -121,7 +125,6 @@ export default function Home() {
                     >
                       <div className="card h-100 bg-transparent text-white border-0 ">
                         <img
-                          loading="lazy"
                           src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
                           className="card-img-top rounded-3"
                           alt={item.title}
