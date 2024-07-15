@@ -36,6 +36,7 @@ export default function Home() {
     speed: 2000,
     autoplaySpeed: 2000,
     cssEase: "linear",
+    arrows: false,
   };
   let Search = async function () {
     let searchTerm = SearchTerm.current.value;
@@ -58,8 +59,8 @@ export default function Home() {
           <div className="pulsing-circle" />
         </div>
       ) : (
-        <section className=" overflow-hidden">
-          <section className="slider-container homeContainer  w-100 rounded-0  cstHight">
+        <section>
+          <section className="slider-container homeContainer   w-100 rounded-0  cstHight">
             <Slider {...settings}>
               {show.map((item, index) => (
                 <div key={index} className=" imgContainer carousel-item">
@@ -69,11 +70,15 @@ export default function Home() {
                       The search is over! Let MovieWave help you find the
                       perfect movie.
                     </p>
-                    <button className=" p-3 btn btn-danger rounded-pill shadow">
+                    <Link
+                      to="/movies"
+                      className=" p-3 btn btn-danger rounded-pill shadow"
+                    >
                       Watch Now
-                    </button>
+                    </Link>
                   </div>
                   <img
+                    loading="lazy"
                     src={`https://image.tmdb.org/t/p/w500/${item.backdrop_path}`}
                     className="d-block w-100 h-100 "
                     alt=""
@@ -116,13 +121,14 @@ export default function Home() {
                     >
                       <div className="card h-100 bg-transparent text-white border-0 ">
                         <img
+                          loading="lazy"
                           src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
                           className="card-img-top rounded-3"
                           alt={item.title}
                         />
                         <div className="card-body">
                           <h5 className="card-title">{item.title}</h5>
-                          <p className="card-text text-secondary text-sm-center text-md-start">
+                          <p className="card-text text-secondary text-sm-center text-md-start ">
                             {item.overview.substring(0, 50)}...
                           </p>
                           <p>
