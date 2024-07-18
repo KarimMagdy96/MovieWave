@@ -14,10 +14,10 @@ import { HashRouter } from "react-router-dom";
 import AuthProvider from "./Context/AuthContext.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <AuthProvider>
-    <React.StrictMode>
+   
       <HashRouter>
         <App />
       </HashRouter>
-    </React.StrictMode>
+    
   </AuthProvider>
 );
