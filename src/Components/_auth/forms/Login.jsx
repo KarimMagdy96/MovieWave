@@ -31,13 +31,15 @@ export default function Login(props) {
       toast(`✅ ${emailRef.current.value} logged in successfully`);
 
     try {
+      await login(emailRef.current.value, passwordRef.current.value);
       SuccessfullyLogin();
       setError("");
       setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value);
       navigate("/home", { replace: true });
     } catch {
       setError("Error signing up");
+      const unSuccessfullyLogin = () => toast(`wrong password o mail`);
+      unSuccessfullyLogin();
       setLoading(false);
     }
   };
