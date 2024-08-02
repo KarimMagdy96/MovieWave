@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import "../authLayout.css";
-import { Client, Account, ID } from "appwrite";
+
 import { Link, useNavigate } from "react-router-dom";
 import React from "react";
 import { ToastContainer, toast } from "react-toastify";
