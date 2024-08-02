@@ -23,7 +23,12 @@
   content: "";
   position: absolute;
   inset: 0 !important;
-  background: rgba(0, 0, 0, 0.61);
+  background: rgb(35, 35, 35);
+  background: linear-gradient(
+    180deg,
+    rgba(35, 35, 35, 0.5747549019607843) 23%,
+    rgba(0, 0, 0, 1) 100%
+  );
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(0.6px);
   -webkit-backdrop-filter: blur(0.6px);
