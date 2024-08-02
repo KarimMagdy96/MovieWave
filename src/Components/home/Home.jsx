@@ -28,6 +28,7 @@ export default function Home() {
   };
 
   const fetchshow = useCallback(async () => {
+    console.log("fetching");
     try {
       const { data } = await axios.get(
         "https://api.themoviedb.org/3/discover/movie?api_key=fd3c31e2d7a54303dc08756b66824aef"
