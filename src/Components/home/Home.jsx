@@ -169,12 +169,12 @@ export default function Home() {
                           <p className="card-text text-secondary text-sm-center text-md-start">
                             {item.overview.substring(0, 30)}...
                           </p>
-                          <p>
+                          <div>
                             <div className="fs-6">Release Date</div>{" "}
                             <span className="text-danger fw-bold fs-6">
                               {item.release_date}
                             </span>
-                          </p>
+                          </div>
                         </div>
                       </div>
                     </Link>
