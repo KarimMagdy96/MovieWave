@@ -96,7 +96,7 @@ export default function Home() {
               pauseOnFocusLoss
               theme="dark"
             />
-            <Slider {...settings}>
+            {/* <Slider {...settings}>
               {show.map((item, index) => (
                 <div key={index} className="imgContainer carousel-item">
                   <div className="text-white text-center sliderText shadow px-2 z-3 position-absolute w-100 h-100 d-flex flex-column align-items-center justify-content-center">
@@ -121,12 +121,12 @@ export default function Home() {
                   />
                 </div>
               ))}
-            </Slider>
+            </Slider> */}
           </section>
           <div className="w-100 position-relative">
-            <div className="sliderTop">
+            {/* <div className="sliderTop">
               <SimpleSlider show={show} />
-            </div>
+            </div> */}
           </div>
           <div className="home">
             <div className="container">
@@ -166,7 +166,7 @@ export default function Home() {
                         <div className="card-body">
                           <h5 className="card-title">{item.title}</h5>
                           <p className="card-text text-secondary text-sm-center text-md-start">
-                            {item.overview.substring(0, 50)}...
+                            {item.overview.substring(0, 30)}...
                           </p>
                           <p>
                             <div className="fs-6">Release Date</div>{" "}

@@ -39,7 +39,7 @@
 
 .homeContainer {
   background-color: black !important;
-  height: 65vh !important;
+  max-height: 65vh !important;
   margin-top: 68px;
 }
 .homeContainer .imgContainer {
