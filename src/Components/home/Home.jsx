@@ -10,10 +10,11 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 
 export default function Home() {
   const [show, setAllShows] = useState([]);
+
   const [searchwords, setSearch] = useState("");
   const { dataLoaded, setDataLoaded } = useAuth();
   const SearchTerm = useRef();
-
+  let originalData = useRef();
   const settings = {
     dots: false,
     fade: true,
@@ -29,11 +30,13 @@ export default function Home() {
 
   const fetchshow = useCallback(async () => {
     console.log("fetching");
+
     try {
       const { data } = await axios.get(
         "https://api.themoviedb.org/3/discover/movie?api_key=fd3c31e2d7a54303dc08756b66824aef"
       );
       setAllShows(data.results);
+
       setDataLoaded(false);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -44,7 +47,7 @@ export default function Home() {
 
   useEffect(() => {
     fetchshow();
-  }, [fetchshow]);
+  }, []);
 
   useEffect(() => {
     const searchHandler = async (searchwords) => {
@@ -54,7 +57,6 @@ export default function Home() {
         if (data.results.length > 0) {
           setAllShows(data.results);
         } else {
-          fetchshow();
           toast("No Result Found");
         }
       } catch (error) {
@@ -65,8 +67,10 @@ export default function Home() {
     const debounceSearch = setTimeout(() => {
       if (searchwords.length > 0) {
         searchHandler(searchwords);
+      } else {
+        fetchshow();
       }
-    }, 1000);
+    }, 500);
 
     return () => {
       clearTimeout(debounceSearch);
