@@ -39,11 +39,7 @@
 
 .homeContainer {
   background-color: black !important;
-  max-height: 65vh !important;
   margin-top: 68px;
-}
-.homeContainer .imgContainer {
-  height: 65vh !important;
 }
 .homeContainer .imgContainer .sliderText h2 {
   font-weight: bolder;
