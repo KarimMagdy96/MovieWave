@@ -7,7 +7,7 @@
   border-color: transparent !important;
 }
 .navbar .active {
-  color: tomato !important;
+  color: #ff6347 !important;
   font-weight: bold !important;
 }
 .navbar .btn-close {
