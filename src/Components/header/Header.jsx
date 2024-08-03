@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./header.css";
-import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
-import img from "../../assets/img/logoDay.png";
+import { Link, Navigate, useLocation } from "react-router-dom";
+
 import { useAuth } from "../../Context/AuthContext";
 export default function Header() {
   const [activeLink, setActiveLink] = useState("home");
@@ -29,8 +29,11 @@ export default function Header() {
         className="navbar navbar-expand-md navbar-dark bg-black py-3  bg-glass fixed-top  shadow"
       >
         <div className="container-fluid ">
-          <Link className="navbar-brand p-0 m-0" to="/home">
-            <img src={img} className="   w-75" alt="logo" />
+          <Link
+            className="navbar-brand p-0 m-0 d-flex justify-content-center align-items-center"
+            to="/home"
+          >
+            <div className=" fs-5 fw-bold">Movie wave</div>
           </Link>
           <button
             className="navbar-toggler"
