@@ -1,13 +1,6 @@
-import React, {
-  useEffect,
-  useRef,
-  useState,
-  useCallback,
-  useMemo,
-} from "react";
+import React, { useEffect, useState, useCallback, useMemo } from "react";
 import "./home.css";
 import axios from "axios";
-import SimpleSlider from "../slider/Slider";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../Context/AuthContext";
 import Slider from "react-slick";
@@ -15,13 +8,11 @@ import { ToastContainer, toast } from "react-toastify";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
 export default function Home() {
-  const [show, setAllShows] = useState([]);
-  const [searchwords, setSearch] = useState("");
+  const [shows, setShows] = useState([]);
+  const [searchWords, setSearchWords] = useState("");
   const { dataLoaded, setDataLoaded } = useAuth();
-  const SearchTerm = useRef();
-  const originalData = useRef();
 
-  const settings = useMemo(
+  const sliderSettings = useMemo(
     () => ({
       dots: false,
       fade: true,
@@ -37,35 +28,36 @@ export default function Home() {
     []
   );
 
-  const fetchshow = useCallback(async () => {
-    console.log("fetching");
+  const fetchShows = useCallback(async () => {
+    console.log("Fetching shows");
 
     try {
       const { data } = await axios.get(
         "https://api.themoviedb.org/3/discover/movie?api_key=fd3c31e2d7a54303dc08756b66824aef"
       );
-      setAllShows(data.results);
+      setShows(data.results);
       setDataLoaded(false);
     } catch (error) {
       console.error("Error fetching data:", error);
       setDataLoaded(false);
-      toast("No Result found");
+      toast("No result found");
     }
   }, [setDataLoaded]);
 
   useEffect(() => {
-    fetchshow();
-  }, [fetchshow]);
+    fetchShows();
+  }, [fetchShows]);
 
   useEffect(() => {
-    const searchHandler = async (searchwords) => {
-      let url = `https://api.themoviedb.org/3/search/movie?api_key=fd3c31e2d7a54303dc08756b66824aef&query=${searchwords}`;
+    const searchShows = async (query) => {
       try {
-        const { data } = await axios.get(url);
+        const { data } = await axios.get(
+          `https://api.themoviedb.org/3/search/movie?api_key=fd3c31e2d7a54303dc08756b66824aef&query=${query}`
+        );
         if (data.results.length > 0) {
-          setAllShows(data.results);
+          setShows(data.results);
         } else {
-          toast("No Result Found");
+          toast("No result found");
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -73,25 +65,22 @@ export default function Home() {
     };
 
     const debounceSearch = setTimeout(() => {
-      if (searchwords.length > 0) {
-        searchHandler(searchwords);
+      if (searchWords.length > 0) {
+        searchShows(searchWords);
       } else {
-        fetchshow();
+        fetchShows();
       }
     }, 500);
 
-    return () => {
-      clearTimeout(debounceSearch);
-    };
-  }, [searchwords, fetchshow]);
+    return () => clearTimeout(debounceSearch);
+  }, [searchWords, fetchShows]);
 
   const handleSearch = (e) => {
-    setSearch(e.target.value);
+    setSearchWords(e.target.value);
   };
 
   return (
     <>
-      {console.log("render")}
       {dataLoaded ? (
         <div className="loader-container">
           <div className="pulsing-circle" />
@@ -109,8 +98,8 @@ export default function Home() {
               pauseOnFocusLoss
               theme="dark"
             />
-            <Slider {...settings}>
-              {show.map((item) => (
+            <Slider {...sliderSettings}>
+              {shows.map((item) => (
                 <div key={item.id} className="imgContainer carousel-item">
                   <div className="text-white text-center sliderText shadow px-2 z-3 position-absolute w-100 h-100 d-flex flex-column align-items-center justify-content-center">
                     <h2>Free Movies to Watch</h2>
@@ -146,13 +135,12 @@ export default function Home() {
                 <input
                   type="text"
                   onChange={handleSearch}
-                  ref={SearchTerm}
                   className="form-control p-2 searchData"
                   placeholder="Search"
                 />
               </div>
               <div className="row row-cols-2 row-cols-md-4 g-4">
-                {show.map((item) => (
+                {shows.map((item) => (
                   <div className="col" key={item.id}>
                     <Link
                       onClick={() => {
