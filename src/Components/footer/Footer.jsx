@@ -1,6 +1,6 @@
 import React from "react";
 import "./footter.css";
-import img from "./../../assets/img/popcorn.png";
+import img from "./../../assets/img/popcorn.webp";
 export default function Footer() {
   return (
     <>
