@@ -33,7 +33,17 @@ export default function Header() {
             className="navbar-brand p-0 m-0 d-flex justify-content-center align-items-center"
             to="/home"
           >
-            <div className=" fs-5 fw-bold">Movie wave</div>
+            <Link
+              onClick={() => handleClick("home")}
+              className={`text-decoration-none text-white fw-bold fs-5  ${
+                activeLink === "home" ? "" : ""
+              }`}
+              aria-current="page"
+              to="/home"
+            >
+              {" "}
+              Movie Wave
+            </Link>
           </Link>
           <button
             className="navbar-toggler"
@@ -46,7 +56,7 @@ export default function Header() {
             <span className="navbar-toggler-icon" />
           </button>
           <div
-            className="offcanvas offcanvas-end"
+            className="offcanvas  offcanvas-end"
             tabIndex={-1}
             id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel"
@@ -56,7 +66,7 @@ export default function Header() {
                 className="offcanvas-title text-white"
                 id="offcanvasNavbarLabel"
               >
-                MoveWave
+                Movie Wave
               </h5>
               <button
                 type="button"

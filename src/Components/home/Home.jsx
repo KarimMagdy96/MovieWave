@@ -128,11 +128,11 @@ export default function Home() {
               ))}
             </Slider>
           </section>
-          <div className="w-100 position-relative">
+          {/* <div className="w-100 position-relative">
             <div className="sliderTop">
               <SimpleSlider show={show} />
             </div>
-          </div>
+          </div> */}
           <div className="home">
             <div className="container">
               <div className="mb-5 text-center">
@@ -171,7 +171,7 @@ export default function Home() {
                         <div className="card-body">
                           <h5 className="card-title">{item.title}</h5>
                           <p className="card-text text-secondary text-sm-center text-md-start">
-                            {item.overview.substring(0, 30)}...
+                            {item.overview.substring(0, 20)}...
                           </p>
                           <div>
                             <div className="fs-6">Release Date</div>{" "}
