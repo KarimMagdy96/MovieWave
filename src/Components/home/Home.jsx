@@ -1,4 +1,10 @@
-import React, { useEffect, useRef, useState, useCallback } from "react";
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  useCallback,
+  useMemo,
+} from "react";
 import "./home.css";
 import axios from "axios";
 import SimpleSlider from "../slider/Slider";
@@ -10,23 +16,26 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 
 export default function Home() {
   const [show, setAllShows] = useState([]);
-
   const [searchwords, setSearch] = useState("");
   const { dataLoaded, setDataLoaded } = useAuth();
   const SearchTerm = useRef();
-  let originalData = useRef();
-  const settings = {
-    dots: false,
-    fade: true,
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 2000,
-    cssEase: "linear",
-    arrows: false,
-  };
+  const originalData = useRef();
+
+  const settings = useMemo(
+    () => ({
+      dots: false,
+      fade: true,
+      infinite: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      speed: 2000,
+      autoplaySpeed: 2000,
+      cssEase: "linear",
+      arrows: false,
+    }),
+    []
+  );
 
   const fetchshow = useCallback(async () => {
     console.log("fetching");
@@ -36,18 +45,17 @@ export default function Home() {
         "https://api.themoviedb.org/3/discover/movie?api_key=fd3c31e2d7a54303dc08756b66824aef"
       );
       setAllShows(data.results);
-
       setDataLoaded(false);
     } catch (error) {
       console.error("Error fetching data:", error);
       setDataLoaded(false);
-      toast(" No Result found");
+      toast("No Result found");
     }
   }, [setDataLoaded]);
 
   useEffect(() => {
     fetchshow();
-  }, []);
+  }, [fetchshow]);
 
   useEffect(() => {
     const searchHandler = async (searchwords) => {
@@ -102,8 +110,8 @@ export default function Home() {
               theme="dark"
             />
             <Slider {...settings}>
-              {show.map((item, index) => (
-                <div key={index} className="imgContainer carousel-item">
+              {show.map((item) => (
+                <div key={item.id} className="imgContainer carousel-item">
                   <div className="text-white text-center sliderText shadow px-2 z-3 position-absolute w-100 h-100 d-flex flex-column align-items-center justify-content-center">
                     <h2>Free Movies to Watch</h2>
                     <p>
@@ -128,11 +136,6 @@ export default function Home() {
               ))}
             </Slider>
           </section>
-          {/* <div className="w-100 position-relative">
-            <div className="sliderTop">
-              <SimpleSlider show={show} />
-            </div>
-          </div> */}
           <div className="home">
             <div className="container">
               <div className="mb-5 text-center">
